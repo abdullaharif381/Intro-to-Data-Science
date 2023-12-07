@@ -10,8 +10,8 @@ with open(data_path, 'rb') as f:
 car_data = pd.DataFrame(car_data)
 
 model_path = "Pakistani_Used_Cars/streamlit/deploy_car.pickle"
-with open(model_path, 'rb') as f:
-    model = pickle.load(f)
+with open(model_path, 'rb') as k:
+    model = pickle.load(k)
 
 # Streamlit app
 st.title("Used Car Worth Estimators")
