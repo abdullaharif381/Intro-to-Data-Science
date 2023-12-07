@@ -4,17 +4,16 @@ import pickle
 import os
 
 # Load car data
-file_path = os.path.join(os.path.dirname(__file__), 'deploy_car_df.pickle')
 
-with open(file_path, 'rb') as f:
+with open(https://github.com/abdullaharif381/Intro-to-Data-Science/blob/main/Pakistani_Used_Cars/streamlit/deploy_car_df.pickle, 'rb') as f:
     car_data = pickle.load(f)
 
 car_data = pd.DataFrame(car_data)
 
 # Load the model
-file_path = os.path.join(os.path.dirname(__file__), 'deploy_car.pickle')
 
-with open(file_path, 'rb') as f:
+
+with open(https://github.com/abdullaharif381/Intro-to-Data-Science/blob/main/Pakistani_Used_Cars/streamlit/deploy_car.pickle, 'rb') as f:
     model = pickle.load(f)
 
 # Streamlit app
