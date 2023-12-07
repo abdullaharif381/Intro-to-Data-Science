@@ -1,25 +1,20 @@
 import pandas as pd
 import streamlit as st
 import pickle
-import os
 
-# Load car data
-
-with open(https://github.com/abdullaharif381/Intro-to-Data-Science/blob/main/Pakistani_Used_Cars/streamlit/deploy_car_df.pickle, 'rb') as f:
+# Load car data and model
+data_path = "Pakistani_Used_Cars/streamlit/deploy_car_df.pickle"
+with open(data_path, 'rb') as f:
     car_data = pickle.load(f)
 
 car_data = pd.DataFrame(car_data)
 
-# Load the model
-
-
-with open(https://github.com/abdullaharif381/Intro-to-Data-Science/blob/main/Pakistani_Used_Cars/streamlit/deploy_car.pickle, 'rb') as f:
+model_path = "Pakistani_Used_Cars/streamlit/deploy_car.pickle"
+with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
 # Streamlit app
 st.title("Used Car Worth Estimators")
-
-# Rest of your code...
 
 # Input fields
 name = st.selectbox("Enter the car company", car_data["car_name"].unique())
