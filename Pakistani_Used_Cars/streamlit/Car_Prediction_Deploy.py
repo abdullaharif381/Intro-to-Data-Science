@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import pickle
+import os
 
 # Load car data and model
 with open('deploy_car_df.pickle', 'rb') as f:
@@ -8,7 +9,12 @@ with open('deploy_car_df.pickle', 'rb') as f:
 
 car_data = pd.DataFrame(car_data)
 
-with open('deploy_car.pickle', 'rb') as f:
+
+
+file_path = os.path.join(os.path.dirname(__file__), 'deploy_car_df.pickle')
+
+with open(file_path, 'rb') as f:
+    # Rest of your code
     model = pickle.load(f)
 
 # Streamlit app
@@ -63,7 +69,7 @@ st.write(sample)
 # Attempt the prediction
 try:
     predicted_price = model.predict(sample)
-    predicted_inflated_price = predicted_price*1.29
+    predicted_inflated_price = predicted_price*1.28
     res = '{:,}'.format(round(int(predicted_inflated_price),-2))
    # st.write(f"Predicted Price: {res}")
 except Exception as e:
