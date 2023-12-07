@@ -3,22 +3,24 @@ import streamlit as st
 import pickle
 import os
 
-# Load car data and model
-with open('deploy_car_df.pickle', 'rb') as f:
+# Load car data
+file_path = os.path.join(os.path.dirname(__file__), 'deploy_car_df.pickle')
+
+with open(file_path, 'rb') as f:
     car_data = pickle.load(f)
 
 car_data = pd.DataFrame(car_data)
 
-
-
-file_path = os.path.join(os.path.dirname(__file__), 'deploy_car_df.pickle')
+# Load the model
+file_path = os.path.join(os.path.dirname(__file__), 'deploy_car.pickle')
 
 with open(file_path, 'rb') as f:
-    # Rest of your code
     model = pickle.load(f)
 
 # Streamlit app
 st.title("Used Car Worth Estimators")
+
+# Rest of your code...
 
 # Input fields
 name = st.selectbox("Enter the car company", car_data["car_name"].unique())
